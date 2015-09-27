@@ -14,6 +14,9 @@
 #include<algorithm>
 #include<stdexcept>
 #include<exception>
+#include<time.h>
+#include <fstream>
+#include <Windows.h>
 
 
 using namespace std;
