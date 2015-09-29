@@ -1,5 +1,5 @@
-#ifndef __DATE_H_INCLUDED__   // if x.h hasn't been included yet...
-#define __DATE_H_INCLUDED__   //   #define this so the compiler knows it has been included
+#ifndef __MAIN_H_INCLUDED__   // if x.h hasn't been included yet...
+#define __MAIN_H_INCLUDED__   //   #define this so the compiler knows it has been included
 #define _SCL_SECURE_NO_WARNINGS
 #pragma once
 
@@ -17,6 +17,9 @@
 #include<time.h>
 #include <fstream>
 #include <Windows.h>
+#include "BaseGameEntity.h"
+#include "StateMachine.h"
+#include "WorkerStates.h"
 
 
 using namespace std;

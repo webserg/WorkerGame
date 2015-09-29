@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BASEGAMEENTITY_H
+#define BASEGAMEENTITY_H
 class BaseGameEntity
 {
 private:
@@ -11,3 +12,4 @@ public:
 	virtual void Update() = 0;
 	int ID()const { return id; }
 };
+#endif

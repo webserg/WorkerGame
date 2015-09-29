@@ -1,5 +1,5 @@
-#ifndef WORKERSTATE_H
-#define WORKERSTATE_H
+#ifndef WORKERSTATES_H
+#define WORKERSTATES_H
 #pragma once
 #include "StateMachine.h"
 #include "Worker.h"

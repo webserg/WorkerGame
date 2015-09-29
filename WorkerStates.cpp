@@ -1,4 +1,5 @@
 #include "WorkerStates.h"
+#include "HouseWifeStates.h"
 #include "main.h"
 
 GoHomeAndRestState* GoHomeAndRestState::Instance()
@@ -23,6 +24,10 @@ void GoHomeAndRestState::Execute(Worker* w) {
 		w->ChangeState(EnterWorkAndMakeMoney::Instance());
 	}
 	else {
+		Lunch *lunch = Lunch::Instance();
+		if (lunch->isReady()) {
+			lunch->decrease();
+		}
 		w->decrementExhausted();
 	}
 	
