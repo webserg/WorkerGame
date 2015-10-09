@@ -1,5 +1,4 @@
-#ifndef LOCATIONS_H
-#define LOCATIONS_H
+#pragma once
 
 
 enum Location
@@ -10,4 +9,3 @@ enum Location
 	saloon
 };
 
-#endif

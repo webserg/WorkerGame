@@ -10,6 +10,6 @@ public:
 	}
 	virtual ~BaseGameEntity() {}
 	virtual void Update() = 0;
-	int ID()const { return id; }
+	int ID() const { return id; }
 };
 #endif

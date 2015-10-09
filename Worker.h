@@ -3,7 +3,7 @@
 #include "main.h"
 #include "Location.h"
 
-class Worker : BaseGameEntity
+class Worker : public BaseGameEntity
 {
 	StateMachine<Worker>* stateMachine;
 	Location location;
