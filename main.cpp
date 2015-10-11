@@ -6,6 +6,7 @@ int main() {
 	Worker* worker1 = new Worker(1);
 	HouseWife* houseWife = new HouseWife(2);
 	EntityMgr->addEntity(worker1);
+	EntityMgr->addEntity(houseWife);
 	for (int i = 0; i < 30; ++i)
 	{
 		worker1->Update();
