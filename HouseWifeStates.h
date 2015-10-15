@@ -13,11 +13,13 @@ public:
 
 	static GoAndCookState* Instance();
 
-	virtual void Enter(HouseWife* w);
+	virtual void Enter(HouseWife* w) override;
 
-	virtual void Execute(HouseWife* w);
+	virtual void Execute(HouseWife* w) override;
 
-	virtual void Exit(HouseWife* w);
+	virtual void Exit(HouseWife* w) override;
+
+	virtual bool onMessage(HouseWife*, Message&) override;
 };
 class RestAndWaitState : public State<HouseWife>
 {
@@ -29,11 +31,13 @@ public:
 
 	static RestAndWaitState* Instance();
 
-	virtual void Enter(HouseWife* w);
+	virtual void Enter(HouseWife* w) override;
 
-	virtual void Execute(HouseWife* w);
+	virtual void Execute(HouseWife* w) override;
 
-	virtual void Exit(HouseWife* w);
+	virtual void Exit(HouseWife* w) override;
+
+	virtual bool onMessage(HouseWife*, Message&) override;
 };
 #endif
 

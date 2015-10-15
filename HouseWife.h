@@ -31,7 +31,8 @@ public:
 	~HouseWife() {
 		delete stateMachine;
 	};
-	void Update();
+	void Update() override;
+	void HandleMessage(const Message& m) override;
 	void HouseWife::ChangeState(State<HouseWife>* pNewState) { stateMachine->ChangeState(pNewState); }
 	StateMachine<HouseWife>* GetFSM()const { return stateMachine; }
 };

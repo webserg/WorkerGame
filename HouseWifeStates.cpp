@@ -1,5 +1,8 @@
 #include "HouseWifeStates.h"
 #include "main.h"
+#include "MessageDispatcher.h"
+#include "Message.h"
+
 class GoAndCookState* GoAndCookState::Instance() {
 	static GoAndCookState instance;
 	return &instance;
@@ -13,6 +16,9 @@ void GoAndCookState::Execute(HouseWife* w) {
 	Lunch *lunch = Lunch::Instance();
 	if (lunch->isReady()) {
 		w->ChangeState(RestAndWaitState::Instance());
+		Message m{ 2,1, message_type::Msg_StewReady ,0.0 };
+		MessageDispatcher::Instance()->send(m);
+
 	}
 	else {
 		lunch->increase();	
@@ -20,6 +26,17 @@ void GoAndCookState::Execute(HouseWife* w) {
 }
 
 void GoAndCookState::Exit(HouseWife* w) {}
+
+bool GoAndCookState::onMessage(HouseWife* wife_entity, Message& message)
+{
+	switch(message.msg)
+	{
+	case Msg_HiHoneyImHome:
+		wife_entity->HandleMessage(message);
+		return true;
+	}
+	return false;
+}
 
 class RestAndWaitState* RestAndWaitState::Instance() {
 	static RestAndWaitState instance;
@@ -38,6 +55,17 @@ void RestAndWaitState::Execute(HouseWife* w) {
 	else {
 		w->ChangeState(GoAndCookState::Instance());
 	}
+}
+
+bool RestAndWaitState::onMessage(HouseWife* wife_entity, Message& message)
+{
+	switch (message.msg)
+	{
+	case Msg_HiHoneyImHome:
+		wife_entity->GetFSM()->ChangeState(GoAndCookState::Instance());
+		return true;
+	}
+	return false;
 }
 
 void RestAndWaitState::Exit(HouseWife* w) {}

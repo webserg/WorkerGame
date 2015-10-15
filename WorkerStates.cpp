@@ -37,6 +37,11 @@ void GoHomeAndRestState::Exit(Worker* w) {
 	cout << "exit" << "\n";	
 }
 
+bool GoHomeAndRestState::onMessage(Worker *, Message &)
+{
+	return false;
+}
+
 EnterWorkAndMakeMoney* EnterWorkAndMakeMoney::Instance()
 {
 	static EnterWorkAndMakeMoney instance;
@@ -64,6 +69,11 @@ void EnterWorkAndMakeMoney::Execute(Worker* w) {
 
 void EnterWorkAndMakeMoney::Exit(Worker* w) {
 	cout << "exit" << "\n";
-};
+}
+bool EnterWorkAndMakeMoney::onMessage(Worker* w, Message& m)
+{
+	return false;
+}
+;
 
 

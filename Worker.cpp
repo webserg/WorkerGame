@@ -9,4 +9,8 @@ void Worker::Update() {
 	stateMachine->Update();
 }
 
+void Worker::HandleMessage(const Message& m)
+{
+	stateMachine->HandleMessage(m);
+}
 

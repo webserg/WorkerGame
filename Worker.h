@@ -14,7 +14,8 @@ public:
 	~Worker() {
 		delete stateMachine;
 	};
-	void Update();
+	void Update() override;
+	void HandleMessage(const Message & m) override;
 	void ChangeState(State<Worker>* pNewState) { stateMachine->ChangeState(pNewState); }
 	void ChangeLocation(Location loc) { location = loc; }
 	StateMachine<Worker>* GetFSM() const { return stateMachine; }

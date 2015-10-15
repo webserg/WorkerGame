@@ -14,11 +14,13 @@ public:
 	
 	static GoHomeAndRestState* Instance();
 
-	virtual void Enter(Worker* w);
+	virtual void Enter(Worker* w) override;
 
 	virtual void Execute(Worker* w);
 
 	virtual void Exit(Worker* w);
+
+	virtual bool onMessage(Worker*, Message&) override;
 };
 
 class EnterWorkAndMakeMoney : public State<Worker>
@@ -35,7 +37,9 @@ public:
 
 	virtual void Execute(Worker* w);
 
-	virtual void Exit(Worker* w);
+	virtual void Exit(Worker* w) override;
+
+	virtual bool onMessage(Worker*, Message&) override;
 };
 #endif
 

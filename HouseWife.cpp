@@ -11,3 +11,9 @@ HouseWife::HouseWife(int id):BaseGameEntity(id)
 void HouseWife::Update() {
 	stateMachine->Update();
 }
+
+void HouseWife::HandleMessage(const Message & m)
+{
+	stateMachine->HandleMessage(m);
+}
+

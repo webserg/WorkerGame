@@ -28,15 +28,16 @@ inline std::string MsgToStr(int msg)
 }
 
 class Message
-{
-	int sender;
-	int receiver;
-	int msg;
-	double delay;
-	double time;
+{	
 public:
+	const int sender;
+	const int receiver;
+	const int msg;
+	const double delay;
+	const double time;
 	Message(int sender_i, int receive_i, int msg, double delay);
 	~Message();
 	bool operator<(const Message& rhs);
+
 };
 

@@ -1,6 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 #pragma once
+class Message;
 template <class Entity>
 class State
 {
@@ -13,6 +14,8 @@ public:
 	virtual void Execute(Entity*) = 0;
 
 	virtual void Exit(Entity*) = 0;
+
+	virtual bool onMessage(Entity*,Message&) = 0;
 	
 };
 #endif
