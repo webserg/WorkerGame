@@ -20,7 +20,7 @@ public:
 
 	virtual void Exit(Worker* w);
 
-	virtual bool onMessage(Worker*, Message&) override;
+	virtual bool onMessage(Worker*, const Message&) override;
 };
 
 class EnterWorkAndMakeMoney : public State<Worker>
@@ -39,7 +39,7 @@ public:
 
 	virtual void Exit(Worker* w) override;
 
-	virtual bool onMessage(Worker*, Message&) override;
+	virtual bool onMessage(Worker*, const Message&) override;
 };
 #endif
 

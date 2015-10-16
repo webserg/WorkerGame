@@ -37,7 +37,8 @@ public:
 	const double time;
 	Message(int sender_i, int receive_i, int msg, double delay);
 	~Message();
-	bool operator<(const Message& rhs);
+	bool operator<(const Message& rhs)const;
+	bool operator>(const Message& rhs)const;
 
 };
 

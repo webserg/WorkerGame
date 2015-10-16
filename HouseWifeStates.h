@@ -19,7 +19,7 @@ public:
 
 	virtual void Exit(HouseWife* w) override;
 
-	virtual bool onMessage(HouseWife*, Message&) override;
+	virtual bool onMessage(HouseWife*, const Message&);
 };
 class RestAndWaitState : public State<HouseWife>
 {
@@ -37,7 +37,7 @@ public:
 
 	virtual void Exit(HouseWife* w) override;
 
-	virtual bool onMessage(HouseWife*, Message&) override;
+	virtual bool onMessage(HouseWife*, const Message&);
 };
 #endif
 

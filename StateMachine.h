@@ -3,9 +3,7 @@
 #include <cassert>
 #include <string>
 #include "State.h"
-
-template <class entity_type>
-class StateMachine
+template <class entity_type> class StateMachine
 {
 private:
 
@@ -44,7 +42,7 @@ public:
 	{
 		//first see if the current state is valid and that it can handle
 		//the message
-		if (m_pCurrentState && m_pCurrentState->OnMessage(m_pOwner, msg))
+		if (m_pCurrentState && m_pCurrentState->onMessage(m_pOwner, msg))
 		{
 			return true;
 		}

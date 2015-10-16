@@ -27,12 +27,12 @@ void GoAndCookState::Execute(HouseWife* w) {
 
 void GoAndCookState::Exit(HouseWife* w) {}
 
-bool GoAndCookState::onMessage(HouseWife* wife_entity, Message& message)
+bool GoAndCookState::onMessage(HouseWife* wife_entity, const Message& message)
 {
 	switch(message.msg)
 	{
 	case Msg_HiHoneyImHome:
-		wife_entity->HandleMessage(message);
+		
 		return true;
 	}
 	return false;
@@ -57,12 +57,12 @@ void RestAndWaitState::Execute(HouseWife* w) {
 	}
 }
 
-bool RestAndWaitState::onMessage(HouseWife* wife_entity, Message& message)
+bool RestAndWaitState::onMessage(HouseWife* wife_entity, const Message& message)
 {
 	switch (message.msg)
 	{
 	case Msg_HiHoneyImHome:
-		wife_entity->GetFSM()->ChangeState(GoAndCookState::Instance());
+		wife_entity->ChangeState(GoAndCookState::Instance());
 		return true;
 	}
 	return false;

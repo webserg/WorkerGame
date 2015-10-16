@@ -2,8 +2,7 @@
 #define STATE_H
 #pragma once
 class Message;
-template <class Entity>
-class State
+template <class Entity> class State
 {
 
 public:
@@ -15,7 +14,7 @@ public:
 
 	virtual void Exit(Entity*) = 0;
 
-	virtual bool onMessage(Entity*,Message&) = 0;
+	virtual bool onMessage(Entity*, const Message&) = 0;
 	
 };
 #endif

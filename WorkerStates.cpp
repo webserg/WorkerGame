@@ -15,6 +15,7 @@ void GoHomeAndRestState::Enter(Worker* w) {
 	}
 	else {
 		w->ChangeLocation(home);
+
 	}
 }
 
@@ -37,9 +38,9 @@ void GoHomeAndRestState::Exit(Worker* w) {
 	cout << "exit" << "\n";	
 }
 
-bool GoHomeAndRestState::onMessage(Worker *, Message &)
+bool GoHomeAndRestState::onMessage(Worker *, const Message &)
 {
-	return false;
+	return true;
 }
 
 EnterWorkAndMakeMoney* EnterWorkAndMakeMoney::Instance()
@@ -70,8 +71,15 @@ void EnterWorkAndMakeMoney::Execute(Worker* w) {
 void EnterWorkAndMakeMoney::Exit(Worker* w) {
 	cout << "exit" << "\n";
 }
-bool EnterWorkAndMakeMoney::onMessage(Worker* w, Message& m)
+bool EnterWorkAndMakeMoney::onMessage(Worker* w, const Message& m)
 {
+	switch(m.msg)
+	{
+	case Msg_StewReady:
+		cout << "Msg_StewReady message recieved" << endl;
+		w->ChangeState(GoHomeAndRestState::Instance());
+		return true;
+	}
 	return false;
 }
 ;
